@@ -5,6 +5,7 @@ import AddTask from "./componenets/AddTask";
 
 const App = () => {
 
+  const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState([
     
     {
@@ -52,8 +53,10 @@ const toggleReminder = (id) => {
   return (
     <div className="container">
      <Header />
-     <AddTask onAdd={addTask} />
-     {tasks.length > 0 ? (
+     {showAddTask && <AddTask onAdd={addTask} />
+      } 
+       
+      {tasks.length > 0 ? (
      <Tasks 
      tasks= {tasks}  
      onDelete={deleteTask} 
